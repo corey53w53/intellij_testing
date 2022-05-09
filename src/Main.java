@@ -7,10 +7,10 @@ public class Main {
         String string_age = s.nextLine();
         System.out.println("My type is " + string_age.getClass());
         int age = Integer.parseInt(string_age);
-        Person(age);
+        System.out.println(Person(age));
     }
 
-    public static void Person(int age) {
-        System.out.println("I am " + age + " years old.");
+    public static String Person(int age) {
+        return "I am " + age + " years old.";
     }
 }
