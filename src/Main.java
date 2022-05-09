@@ -2,30 +2,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Scanner s = new Scanner(System.in);
-//        System.out.println("Enter your age:");
-//        String string_age = s.nextLine();
-//        System.out.println("My type is " + string_age.getClass());
-//        int age = Integer.parseInt(string_age);
-//        System.out.println(Person(age));
-        String test="1ab23c";
-        String[] myarr=split(test);
+//        System.out.println(Person());
+//        split("1ab23c");
 
-        //yo how tf does this vvv for loop work, plz help
-        for (String s : myarr) {
-            System.out.println(s);
-        }
-        //for loop above and below are the same, whatttt
-        for (int i=0;i<myarr.length;i++){
-            System.out.println(myarr[i]);
-        }
-
+        System.out.println(is_palindrome("hellolleh"));
+        System.out.println(is_palindrome("12321"));
+        System.out.println(is_palindrome("1"));
+        System.out.println(is_palindrome("12"));
+        System.out.println(is_palindrome("123"));
     }
-
-    public static String Person(int age) {
+    public static boolean is_palindrome(String s){
+        int length = s.length();
+        if (length%2==1){
+            length+=1;
+        }
+        boolean r=true;
+        for (int i=0;i<length/2;i++){
+            if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+                r = false;
+                break;
+            }
+        }
+        return r;
+    }
+    public static String Person() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter your age:");
+        String string_age = s.nextLine();
+        int age = Integer.parseInt(string_age);
         return "I am " + age + " years old.";
     }
-    public static String[] split(String s){
+    public static void split(String s){
         String ints="";
         String chars="";
         for (int i=0;i<s.length();i++){
@@ -38,7 +45,15 @@ public class Main {
                 chars=chars.concat(Character.toString(s.charAt(i)));
             }
         }
-        return new String[]{ints, chars};
+        String[] r= {ints,chars};
+        //yo how tf does this vvv for loop work, plz help
+        for (String i : r) {
+            System.out.println(i);
+        }
+        //for loop above and below are the same, whatttt
+//        for (int i=0;i<myarr.length;i++){
+//            System.out.println(myarr[i]);
+//        }
 
     }
 }
