@@ -12,18 +12,10 @@ public class Main {
         System.out.println(is_palindrome("123"));
     }
     public static boolean is_palindrome(String s){
-        int length = s.length();
-        if (length%2==1){
-            length+=1;
+        for (int i=0;i<s.length()/2;i++){
+            if (s.charAt(i) != s.charAt(s.length() - i - 1)) {return false;}
         }
-        boolean r=true;
-        for (int i=0;i<length/2;i++){
-            if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
-                r = false;
-                break;
-            }
-        }
-        return r;
+        return true;
     }
     public static String Person() {
         Scanner s = new Scanner(System.in);
