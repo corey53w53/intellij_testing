@@ -8,33 +8,45 @@ public class Main {
         File myObj = new File("input.txt");
         Scanner myReader = new Scanner(myObj);
         String input="";
-        List<Integer> list=new ArrayList<Integer>();
-        int forward1=0;
-        int depth1=0;
-        int forward2 = 0;
-        int depth2 = 0;
-        int aim2=0;
+        List<String> list=new ArrayList<String>();
         while (myReader.hasNextLine()){
-            String[] l = myReader.nextLine().split(" ");
-            int num = Integer.parseInt(l[1]);
-            switch (l[0]) {
-                case "forward":
-                    forward1+=num;
-                    forward2+=num;
-                    depth2+=(num*aim2);
-                    break;
-                case "up":
-                    depth1-=num;
-                    aim2-=num;
-                    break;
-                case "down":
-                    depth1+=num;
-                    aim2+=num;
-                    break;
-            }
+            String i = myReader.nextLine();
+            list.add(i);
         }
         myReader.close();
-        System.out.println("Part 1: " + forward1*depth1);
-        System.out.println("Part 2: " + forward2*depth2);
+        String most_common="";
+        String least_common="";
+        for (int i=0;i<list.get(0).length();i++){
+            int zeroes=0;
+            int ones=0;
+            for(String s:list){
+                if (s.charAt(i)=='0'){
+                    zeroes+=1;
+                } else {
+                    ones+=1;
+                }
+            }
+            if (zeroes>ones){
+                most_common+="0";
+                least_common+="1";
+            } else {
+                most_common+="1";
+                least_common+="0";
+            }
+        }
+        int gamma = to_base_ten(most_common);
+        int epsilon = to_base_ten(least_common);
+        System.out.println("Part one: " + gamma*epsilon);
+        System.out.println(list);
+    }
+    public static int to_base_ten(String s){
+        int multiplier = 1;
+        int total=0;
+        for (int i = s.length()-1; i>=0;i--){
+            int c = Character.getNumericValue(s.charAt(i));
+            total+=c*multiplier;
+            multiplier*=2;
+        }
+        return total;
     }
 }
