@@ -6,11 +6,9 @@ public class Main {
         File myObj = new File("input.txt");
         Scanner myReader = new Scanner(myObj);
         String input="";
-        while (myReader.hasNextLine()) {
-            String data = myReader.nextLine();
-            input=input+data+"\n";
-        }
+        while (myReader.hasNextLine()) {input=input+myReader.nextLine()+"\n";}
         myReader.close();
         System.out.println(input);
+
     }
 }
