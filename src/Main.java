@@ -11,4 +11,5 @@ public class Main {
         Fraction.simplify(a);
         System.out.println("After simplifying: " + a);
     }
+    //TODO add gcf and lcm method
 }
