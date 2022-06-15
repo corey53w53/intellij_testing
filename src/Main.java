@@ -10,6 +10,7 @@ public class Main {
         System.out.println("Before simplifying: " + a);
         Fraction.simplify(a);
         System.out.println("After simplifying: " + a);
+        System.out.println(Fraction.gcf(0,40));
     }
     //TODO add gcf and lcm method
 }
